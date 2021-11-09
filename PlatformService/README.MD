@@ -1,1 +1,1 @@
-Playing around communication between two services built on top of .NET 5
+This directory contains the fictitious Platform Service. 
