@@ -1,5 +1,5 @@
 using AutoMapper;
-using PlatformService.Dto;
+using PlatformService.Dtos;
 using PlatformService.Models;
 
 namespace PlatformService.Profiles
