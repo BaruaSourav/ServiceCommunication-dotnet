@@ -6,6 +6,6 @@ namespace PlatformService.Dtos
         public string Name { get; set; }
         public string Publisher {get; set;}
         public decimal Cost { get; set; }
-        public string Installer{get; set;}
+        public string InstalledBy{get; set;}
     }
 }

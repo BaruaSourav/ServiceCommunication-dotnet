@@ -13,7 +13,7 @@ namespace PlatformService.Models
         public string Publisher {get; set;}
         [Required]
         public decimal Cost { get; set; }
-        public string Installer{get; set;}
+        public string InstalledBy{get; set;}
     }
 
 }
