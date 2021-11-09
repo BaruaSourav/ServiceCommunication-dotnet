@@ -32,6 +32,11 @@ namespace PlatformService.Data
         {
             return _context.Platforms.FirstOrDefault(p => p.Id == id);
         }
+
+        public void DeletePlatformById(int id)
+        {
+            _context.Platforms.Remove(_context.Platforms.First(p => p.Id == id));
+        } 
         public bool SaveChanges()
         {
             return (_context.SaveChanges()>=0);
