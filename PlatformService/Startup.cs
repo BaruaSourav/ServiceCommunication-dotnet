@@ -13,7 +13,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using PlatformService.Data;
-using PlatformService.SyncCommServices.HttpGet;
+using PlatformService.SyncCommServices.Http;
 
 namespace PlatformService
 {
@@ -39,6 +39,7 @@ namespace PlatformService
             });
             services.AddScoped<IPlatformRepo, PlatformRepo>();
             services.AddHttpClient<ICommandDataClient,HttpCommandDataClient>();
+            Console.WriteLine($"--> Command Service Endpoint is {Configuration["CommandServiceUrl"]}");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
