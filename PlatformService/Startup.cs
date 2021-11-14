@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using PlatformService.Data;
+using PlatformService.SyncCommServices.HttpGet;
 
 namespace PlatformService
 {
@@ -37,6 +38,7 @@ namespace PlatformService
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PlatformService", Version = "v1" });
             });
             services.AddScoped<IPlatformRepo, PlatformRepo>();
+            services.AddHttpClient<ICommandDataClient,HttpCommandDataClient>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
