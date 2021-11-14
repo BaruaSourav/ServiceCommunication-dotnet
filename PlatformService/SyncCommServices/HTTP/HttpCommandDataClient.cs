@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using PlatformService.Dtos;
 
-namespace PlatformService.SyncCommServices.HttpGet
+namespace PlatformService.SyncCommServices.Http
 {
     public class HttpCommandDataClient : ICommandDataClient
     {
