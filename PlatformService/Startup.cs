@@ -72,7 +72,8 @@ namespace PlatformService
             {
                 endpoints.MapControllers();
             });
-            InitDb.PopulateDb(app);
+
+            InitDb.PopulateDb(app, env.IsProduction());
         }
     }
 }

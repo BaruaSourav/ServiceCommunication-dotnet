@@ -3,21 +3,34 @@ using System.Linq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using PlatformService.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace PlatformService.Data
 {
     public static class InitDb
     {
-        public static void PopulateDb(IApplicationBuilder app)
+        public static void PopulateDb(IApplicationBuilder app, bool isProd)
         {
             using(var serviceScope = app.ApplicationServices.CreateScope())
             {
-                SeedData(serviceScope.ServiceProvider.GetService<AppDbContext>());
+                SeedData(serviceScope.ServiceProvider.GetService<AppDbContext>(), isProd);
             }
         }
 
-        private static void SeedData(AppDbContext context)
+        private static void SeedData(AppDbContext context, bool isProduction)
         {
+            if(isProduction)
+            {
+                Console.WriteLine("==>  Applying migrations...");
+                try{
+                    context.Database.Migrate();
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine($"==> Failed to migrate : {ex.Message}");
+                }
+                
+            }
             if(!context.Platforms.Any())
             {
                 Console.WriteLine("==> Platform DB Empty: Seeding Data ");
@@ -30,7 +43,7 @@ namespace PlatformService.Data
             }
             else
             {
-                Console.WriteLine("==> There are already some data in Platform DB, skipping seeding");
+                Console.WriteLine("==> There are already some data in Platform DB, skipped seeding");
             }
         }
 
