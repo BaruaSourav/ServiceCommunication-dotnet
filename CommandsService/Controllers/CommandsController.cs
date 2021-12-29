@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CommandsService.Controllers
 {
+    [ApiController]
     [Route("api/csrv/platforms/{platformId}/[controller]")]
     public class CommandsController: ControllerBase
     {
@@ -23,7 +24,7 @@ namespace CommandsService.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<CommandReadDto>> GetCommandsForPlatform(int platformId)
         {
-            Console.WriteLine($"--> Getting commands for Platform ID : {platformId}");
+            Console.WriteLine($"==> Getting commands for Platform ID : {platformId}");
             if(!_repository.PlatformExists(platformId))
             {
                 return NotFound();
@@ -47,7 +48,7 @@ namespace CommandsService.Controllers
         }
 
         [HttpPost]
-        public ActionResult<CommandReadDto> CreateCommandForPlatform(int platformId, CommandCreateDto commandDto)
+        public ActionResult<CommandReadDto> CreateCommandForPlatform(CommandCreateDto commandDto, int platformId)
         {
             if(!_repository.PlatformExists(platformId))
             {
