@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using PlatformService.AsyncCommServices;
 using PlatformService.Data;
 using PlatformService.SyncCommServices.Http;
 
@@ -48,6 +49,7 @@ namespace PlatformService
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PlatformService", Version = "v1" });
             });
             services.AddScoped<IPlatformRepo, PlatformRepo>();
+            services.AddSingleton<IMessageBusClient, RabbitMQMessageBusClient>();
             services.AddHttpClient<ICommandDataClient,HttpCommandDataClient>();
             Console.WriteLine($"--> Command Service Endpoint is {Configuration["CommandServiceUrl"]}");
         }
