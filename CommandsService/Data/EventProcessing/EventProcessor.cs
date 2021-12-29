@@ -6,14 +6,14 @@ using CommandsService.Models;
 using CommandsService.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CommandsService.EventsProcessor
+namespace CommandsService.EventProcessors
 {
-    public class EventsProcessor : IEventProcessor
+    public class EventProcessor : IEventProcessor
     {
         private readonly IServiceScopeFactory _scopeFactory;
         private readonly IMapper _mapper;
 
-        public EventsProcessor(IServiceScopeFactory scopeFactory, IMapper mapper)
+        public EventProcessor(IServiceScopeFactory scopeFactory, IMapper mapper)
         {
             _scopeFactory = scopeFactory;
             _mapper = mapper;
