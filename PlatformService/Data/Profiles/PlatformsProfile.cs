@@ -12,6 +12,7 @@ namespace PlatformService.Profiles
             // Source -> Target
             CreateMap<Platform, PlatformReadDto>(); // Reading Scenario Model to ReadDto
             CreateMap<PlatformCreateDto, Platform>(); // Writing Scenario Create DTO to Model
+            CreateMap<PlatformReadDto, PlatformPublishedDto>(); //PlatformRead DTO to PlatformPublishedDto for publishing to Message Bus
         }
     }
 }
