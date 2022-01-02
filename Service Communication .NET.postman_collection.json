@@ -1,0 +1,668 @@
+{
+	"info": {
+		"_postman_id": "0dfadd96-78c7-4313-bac8-e579ac57999d",
+		"name": "Service Communication .NET",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Local Dev",
+			"item": [
+				{
+					"name": "Platform Service",
+					"item": [
+						{
+							"name": "Create Platform (JSON)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"name\": \"Visual Studio Code\",\r\n        \"publisher\": \"Microsoft\",\r\n        \"cost\": 0.0,\r\n        \"installedBy\": \"Sourav\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/Platforms",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"Platforms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "All Platforms",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:5001/api/Platforms",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"Platforms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Platform by Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:5001/api/Platforms/2",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"Platforms",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Platform by Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:5001/api/Platforms/delete/1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"Platforms",
+										"delete",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Command Service",
+					"item": [
+						{
+							"name": "Heartbeat Test",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:6000/api/csrv/platforms/heartbeat",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "6000",
+									"path": [
+										"api",
+										"csrv",
+										"platforms",
+										"heartbeat"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Platforms",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:6000/api/csrv/platforms/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "6000",
+									"path": [
+										"api",
+										"csrv",
+										"platforms",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Commands for plat",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:6000/api/csrv/platforms/15/commands",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "6000",
+									"path": [
+										"api",
+										"csrv",
+										"platforms",
+										"15",
+										"commands"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a Command for plat",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:6000/api/csrv/platforms/1/commands/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "6000",
+									"path": [
+										"api",
+										"csrv",
+										"platforms",
+										"1",
+										"commands",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Command For Platform",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Howto\": \"Push a docker container to docker hub\",\r\n    \"CommandLine\":\"docker push\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:6000/api/csrv/platforms/6/commands",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "6000",
+									"path": [
+										"api",
+										"csrv",
+										"platforms",
+										"6",
+										"commands"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "K8S",
+			"item": [
+				{
+					"name": "Command Service(nginx)",
+					"item": [
+						{
+							"name": "Heartbeat Test",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://micsrv.com/api/csrv/platforms/heartbeat",
+									"protocol": "http",
+									"host": [
+										"micsrv",
+										"com"
+									],
+									"path": [
+										"api",
+										"csrv",
+										"platforms",
+										"heartbeat"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Platforms",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://micsrv.com/api/csrv/platforms/",
+									"protocol": "http",
+									"host": [
+										"micsrv",
+										"com"
+									],
+									"path": [
+										"api",
+										"csrv",
+										"platforms",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Commands for plat",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://micsrv.com/api/csrv/platforms/7/commands",
+									"protocol": "http",
+									"host": [
+										"micsrv",
+										"com"
+									],
+									"path": [
+										"api",
+										"csrv",
+										"platforms",
+										"7",
+										"commands"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a Command for plat",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://micsrv.com/api/csrv/platforms/7/commands/1",
+									"protocol": "http",
+									"host": [
+										"micsrv",
+										"com"
+									],
+									"path": [
+										"api",
+										"csrv",
+										"platforms",
+										"7",
+										"commands",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Command For Platform",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Howto\": \"Build a .NET Project\",\r\n    \"CommandLine\":\"dotnet build\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://micsrv.com/api/csrv/platforms/7/commands",
+									"protocol": "http",
+									"host": [
+										"micsrv",
+										"com"
+									],
+									"path": [
+										"api",
+										"csrv",
+										"platforms",
+										"7",
+										"commands"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Platform Service (Node Port)",
+					"item": [
+						{
+							"name": "Create Platform (JSON)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Visual Studio Community Edition\",\r\n    \"publisher\": \"Microsoft\",\r\n    \"cost\": 0.0,\r\n    \"installedBy\": \"Sourav\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:30035/api/Platforms",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "30035",
+									"path": [
+										"api",
+										"Platforms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "All Platforms",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:30035/api/Platforms",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "30035",
+									"path": [
+										"api",
+										"Platforms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Platform by Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:30035/api/Platforms/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "30035",
+									"path": [
+										"api",
+										"Platforms",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Platform by Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:30035/api/Platforms/delete/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "30035",
+									"path": [
+										"api",
+										"Platforms",
+										"delete",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Platform Service (nginx)",
+					"item": [
+						{
+							"name": "All Platforms",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://micsrv.com/api/platforms",
+									"protocol": "http",
+									"host": [
+										"micsrv",
+										"com"
+									],
+									"path": [
+										"api",
+										"platforms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Platform (JSON)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Visual Studio Pro 2019\",\r\n    \"publisher\": \"Microsoft\",\r\n    \"cost\": 40.0,\r\n    \"installedBy\": \"Sourav\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://micsrv.com/api/platforms",
+									"protocol": "http",
+									"host": [
+										"micsrv",
+										"com"
+									],
+									"path": [
+										"api",
+										"platforms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Platform by Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://micsrv.com/api/platforms/delete/6",
+									"protocol": "http",
+									"host": [
+										"micsrv",
+										"com"
+									],
+									"path": [
+										"api",
+										"platforms",
+										"delete",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Platform by Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://micsrv.com/api/platforms/1",
+									"protocol": "http",
+									"host": [
+										"micsrv",
+										"com"
+									],
+									"path": [
+										"api",
+										"platforms",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Docker Env",
+			"item": [
+				{
+					"name": "Platform Service (Docker)",
+					"item": [
+						{
+							"name": "All Platforms",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/Platforms",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"Platforms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Platform by Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/Platforms/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"Platforms",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Platform (JSON)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Visual Studio Community Edition\",\r\n    \"publisher\": \"Microsoft\",\r\n    \"cost\": 0.0,\r\n    \"installedBy\": \"Sourav\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/Platforms",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"Platforms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Platform by Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/Platforms/delete/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"Platforms",
+										"delete",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
